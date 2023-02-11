@@ -58,7 +58,7 @@ bool ImageYUV422::isResizingSupported (unsigned input_width, unsigned input_heig
   return ImageYUV422::resizingSupported (input_width, input_height, output_width, output_height);
 }
 
-void ImageYUV422::fillRGB (unsigned width, unsigned height, unsigned char* rgb_buffer, unsigned rgb_line_step) const throw (OpenNIException)
+void ImageYUV422::fillRGB (unsigned width, unsigned height, unsigned char* rgb_buffer, unsigned rgb_line_step) const 
 {
   // 0  1   2  3
   // u  y1  v  y2
@@ -119,7 +119,7 @@ void ImageYUV422::fillRGB (unsigned width, unsigned height, unsigned char* rgb_b
   }
 }
 
-void ImageYUV422::fillGrayscale (unsigned width, unsigned height, unsigned char* gray_buffer, unsigned gray_line_step) const throw (OpenNIException)
+void ImageYUV422::fillGrayscale (unsigned width, unsigned height, unsigned char* gray_buffer, unsigned gray_line_step) const 
 {
   // u y1 v y2
   if (width > image_md_->XRes () || height > image_md_->YRes ())
