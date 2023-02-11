@@ -264,19 +264,19 @@ float OpenNIDevice::getBaseline () const throw ()
 
 template<typename T> OpenNIDevice::CallbackHandle OpenNIDevice::registerImageCallback (void (T::*callback)(boost::shared_ptr<Image>, void* cookie), T& instance, void* custom_data) throw ()
 {
-  image_callback_[image_callback_handle_counter_] = boost::bind (callback, boost::ref (instance), _1, custom_data);
+  image_callback_[image_callback_handle_counter_] = boost::bind (callback, boost::ref (instance), boost::placeholders::_1, custom_data);
   return image_callback_handle_counter_++;
 }
 
 template<typename T> OpenNIDevice::CallbackHandle OpenNIDevice::registerDepthCallback (void (T::*callback)(boost::shared_ptr<DepthImage>, void* cookie), T& instance, void* custom_data) throw ()
 {
-  depth_callback_[depth_callback_handle_counter_] = boost::bind ( callback,  boost::ref (instance), _1, custom_data);
+  depth_callback_[depth_callback_handle_counter_] = boost::bind ( callback,  boost::ref (instance), boost::placeholders::_1, custom_data);
   return depth_callback_handle_counter_++;
 }
 
 template<typename T> OpenNIDevice::CallbackHandle OpenNIDevice::registerIRCallback (void (T::*callback)(boost::shared_ptr<IRImage>, void* cookie), T& instance, void* custom_data) throw ()
 {
-  ir_callback_[ir_callback_handle_counter_] = boost::bind ( callback,  boost::ref (instance), _1, custom_data);
+  ir_callback_[ir_callback_handle_counter_] = boost::bind ( callback,  boost::ref (instance), boost::placeholders::_1, custom_data);
   return ir_callback_handle_counter_++;
 }
 
